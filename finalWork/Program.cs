@@ -4,41 +4,49 @@
 // При решении не рекомендуется пользоваться коллекциями, лучше обойтись исключительно массивами.
 
 
-string [] array = new string [6] {"Work", "IT",":D", "aaaaaaaaaaaa", "12!/13", "ye"};
+string[] array = new string[6] { "321", "112", ":D", "22", "aaaaaaaaaaaaaaaaa", "ye" };
 
-int NumberElements (string [] arr, int minСharacters)
+int NumberElements(string[] arr, int minСharacters)
 {
     int count = 0;
     for (int i = 0; i < arr.Length; i++)
     {
-       if  (arr[i].Length <= minСharacters) count+=1;
+        if (arr[i].Length <= minСharacters) count += 1;
     }
     return count;
 }
 
-string [] CreateArrayMinCharasters(string [] arr, int minNumbChar, int minСharacters)
+string[] CreateArrayMinCharasters(string[] arr, int minNumbChar, int minСharacters)
 {
-    string [] arrayMinNumbChar = new string [minNumbChar];
+    string[] arrayMinNumbChar = new string[minNumbChar];
     int j = 0;
-    for (int i = 0; i < arrayMinNumbChar.Length; i++)
+    for (int i = 0; i < arr.Length; i++)
     {
-        if (arr[j].Length <= minСharacters) arrayMinNumbChar[i] = arr[j];
-        j++;
+        if (arr[i].Length <= minСharacters)
+        {
+            arrayMinNumbChar[j] = arr[i];
+            j++;
+        }
     }
     return arrayMinNumbChar;
 }
 
-void PrintArray(string arr)
-{ 
-    Console.Write("[");
+void PrintArray(string[] arr)
+{
+    Console.Write("[ ");
     for (int i = 0; i < arr.Length; i++)
     {
-        if (i<arr.Length-1) Console.Write($"{arr[i]}, ");
-        Console.Write(arr[i]);
+        if (i < arr.Length - 1) Console.Write($"{arr[i]}, ");
+        else Console.Write(arr[i]);
     }
     Console.WriteLine(" ]");
 }
 
 
+int numberElements = NumberElements(array, 3);
+string[] arrayMinNumCharasters = CreateArrayMinCharasters(array, numberElements, 3);
 
 Console.WriteLine("Имеющийся массив: ");
+PrintArray(array);
+Console.WriteLine("\nМассив из строк, длина которых меньше либо равна 3 символам:");
+PrintArray(arrayMinNumCharasters);
