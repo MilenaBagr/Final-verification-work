@@ -16,4 +16,16 @@ int NumberElements (string [] arr, int minСharacters)
     return count;
 }
 
+string [] CreateArrayMinCharasters(string [] arr, int minNumbChar, int minСharacters)
+{
+    string [] arrayMinNumbChar = new string [minNumbChar];
+    int j = 0;
+    for (int i = 0; i < arrayMinNumbChar.Length; i++)
+    {
+        if (arr[j].Length <= minСharacters) arrayMinNumbChar[i] = arr[j];
+        j++;
+    }
+    return arrayMinNumbChar;
+}
+
 Console.WriteLine("Имеющийся массив: ");
