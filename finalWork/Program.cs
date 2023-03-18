@@ -28,4 +28,17 @@ string [] CreateArrayMinCharasters(string [] arr, int minNumbChar, int minСhara
     return arrayMinNumbChar;
 }
 
+void PrintArray(string arr)
+{ 
+    Console.Write("[");
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (i<arr.Length-1) Console.Write($"{arr[i]}, ");
+        Console.Write(arr[i]);
+    }
+    Console.WriteLine(" ]");
+}
+
+
+
 Console.WriteLine("Имеющийся массив: ");
